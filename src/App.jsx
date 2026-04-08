@@ -328,12 +328,34 @@ export default function App() {
     return () => { unsubTx(); unsubSettings(); };
   }, [user]);
 
-  useEffect(() => {
-    const styleSheet = document.createElement("style");
+useEffect(() => {
+    // 1. Создаем или обновляем контейнер для стилей анимаций
+    let styleSheet = document.getElementById('app-animations-styles');
+    if (!styleSheet) {
+      styleSheet = document.createElement("style");
+      styleSheet.id = 'app-animations-styles';
+      document.head.appendChild(styleSheet);
+    }
     styleSheet.innerText = styles;
-    document.head.appendChild(styleSheet);
-    document.documentElement.className = userSettings.theme === 'dark' ? 'dark' : '';
-    return () => styleSheet.remove();
+
+    // 2. Правильное переключение темной темы
+    if (userSettings.theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // 3. Форсированная загрузка Tailwind (на случай тупняков браузера)
+    if (!window.tailwind) {
+      const twScript = document.createElement('script');
+      twScript.src = 'https://cdn.tailwindcss.com';
+      document.head.appendChild(twScript);
+    }
+
+    return () => {
+      const oldStyle = document.getElementById('app-animations-styles');
+      if (oldStyle) oldStyle.remove();
+    };
   }, [userSettings.theme]);
 
   // --- Расчеты статистики ---
