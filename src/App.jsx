@@ -1,3 +1,4 @@
+import './index.css';
 import ReactDOM from 'react-dom/client';
 import React, { useState, useMemo, useEffect } from 'react';
 import { 
@@ -787,8 +788,13 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-app flex items-center justify-center">
-        <Cloud size={40} className="text-blue-500 animate-pulse opacity-80" />
+      <div style={{ backgroundColor: '#0f172a' }} className="fixed inset-0 flex flex-col items-center justify-center z-[9999]">
+        <div className="relative flex flex-col items-center">
+          <Cloud size={60} className="text-blue-500 animate-pulse" />
+          <div className="mt-4 text-blue-500/50 text-xs font-medium tracking-widest uppercase animate-pulse">
+            Loading
+          </div>
+        </div>
       </div>
     );
   }
