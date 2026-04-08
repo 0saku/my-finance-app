@@ -4,8 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Конфигурируем Tailwind, чтобы он понимал твои кастомные цвета из кода
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              card: 'var(--c-card)',
+              app: 'var(--c-bg)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Тот самый фикс, чтобы не было белого экрана при загрузке */
+      body {
+        background-color: #0f172a;
+        margin: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+      #root {
+        min-height: 100vh;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-[#0f172a]">
     <div id="root"></div>
     <script type="module" src="/src/App.jsx"></script>
   </body>
