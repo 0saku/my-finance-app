@@ -33,24 +33,45 @@ const styles = `
     --c-card: #ffffff;
     --c-border: #e2e8f0;
     --c-text-main: #0f172a;
-    --c-modal: #ffffff; /* Чистый белый без прозрачности */
+    --c-modal: #ffffff;
   }
   .dark {
     --c-bg: #0f172a;
-    --c-card: #1e293b; /* Плотный цвет карточки */
-    --c-border: rgba(255, 255, 255, 0.1);
+    --c-card: #1e293b; 
+    /* Делаем обводку почти прозрачной, чтобы она не "резала" глаз */
+    --c-border: rgba(255, 255, 255, 0.05); 
     --c-text-main: #ffffff;
-    --c-modal: #1e293b; /* Плотный темный фон для модалок */
+    --c-modal: #1e293b;
+  }
+
+  /* Убираем лишние обводки у body и обнуляем размытие */
+  body { 
+    background-color: var(--c-bg); 
+    color: var(--c-text-main); 
+    margin: 0;
   }
 
   .bg-modal { 
     background-color: var(--c-modal) !important;
-    backdrop-filter: none !important; /* Выключаем размытие на корню */
+    backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--c-border) !important;
   }
-  
-  body { background-color: var(--c-bg); color: var(--c-text-main); }
-  /* Остальные стили (скроллбар и т.д.) оставляй как есть */
+
+  /* Чтобы карточки месяцев и истории выглядели аккуратно */
+  .bg-card { 
+    background-color: var(--c-card);
+    border: 1px solid var(--c-border);
+  }
+
+  .border-main { 
+    border-color: var(--c-border) !important; 
+  }
+
+  /* Плавность для кнопок */
+  button {
+    transition: all 0.2s ease;
+  }
 `;
 
 // --- Словари ---
