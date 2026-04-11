@@ -2,7 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Добавим плавность переходов как в оригинале */
-* {
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+/* Анимации волн — теперь они живут тут и не ломаются */
+@keyframes wave-slide-1 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes wave-slide-2 {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-wave-1 { animation: wave-slide-1 4s linear infinite !important; }
+.animate-wave-2 { animation: wave-slide-2 6s linear infinite !important; }
+.animate-wave-boil-1 { animation: wave-slide-1 1.5s linear infinite !important; }
+.animate-wave-boil-2 { animation: wave-slide-2 2s linear infinite !important; }
+
+/* Анимация пульсации для облака (Tailwind иногда ее теряет при кастомной сборке) */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
 }
