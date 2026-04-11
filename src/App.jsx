@@ -29,24 +29,28 @@ const appId = 'finance-tracker-by-abdu';
 // --- Стили и Темы ---
 const styles = `
   :root {
-    --c-bg: #f8fafc; --c-card: #ffffff; --c-card-hover: #f1f5f9;
-    --c-border: #e2e8f0; --c-text-main: #0f172a; --c-text-sub: #334155;
-    --c-text-muted: #64748b; --c-modal: rgba(255, 255, 255, 0.9); --c-shadow: rgba(0, 0, 0, 0.05);
+    --c-bg: #f8fafc;
+    --c-card: #ffffff;
+    --c-border: #e2e8f0;
+    --c-text-main: #0f172a;
+    --c-modal: #ffffff; /* Чистый белый без прозрачности */
   }
   .dark {
-    --c-bg: #0f172a; --c-card: rgba(30, 41, 59, 0.6); --c-card-hover: rgba(30, 41, 59, 0.9);
-    --c-border: rgba(255, 255, 255, 0.1); --c-text-main: #ffffff; --c-text-sub: #e2e8f0;
-    --c-text-muted: #94a3b8; --c-modal: rgba(2, 6, 23, 0.85); --c-shadow: rgba(0, 0, 0, 0.3);
+    --c-bg: #0f172a;
+    --c-card: #1e293b; /* Плотный цвет карточки */
+    --c-border: rgba(255, 255, 255, 0.1);
+    --c-text-main: #ffffff;
+    --c-modal: #1e293b; /* Плотный темный фон для модалок */
   }
-  body { background-color: var(--c-bg); color: var(--c-text-main); transition: background-color 0.3s ease; }
-  .bg-app { background-color: var(--c-bg); }
-  .bg-card { background-color: var(--c-card); }
-  .border-main { border-color: var(--c-border); }
-  .text-main { color: var(--c-text-main); }
-  .blur-money { filter: blur(8px); transition: filter 0.3s ease; }
-  .unblur-money { filter: blur(0px); transition: filter 0.3s ease; }
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 10px; }
+
+  .bg-modal { 
+    background-color: var(--c-modal) !important;
+    backdrop-filter: none !important; /* Выключаем размытие на корню */
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  body { background-color: var(--c-bg); color: var(--c-text-main); }
+  /* Остальные стили (скроллбар и т.д.) оставляй как есть */
 `;
 
 // --- Словари ---
@@ -172,7 +176,7 @@ const CustomSelect = ({ value, options, onChange }) => {
       {open && (
         <>
           <div className="fixed inset-0 z-40" onPointerDown={(e) => { e.stopPropagation(); setOpen(false); }}></div>
-          <div className="absolute right-0 mt-2 min-w-[150px] bg-modal backdrop-blur-xl border border-main rounded-xl shadow-2xl z-50 overflow-hidden py-1 animate-in fade-in zoom-in-95 duration-100">
+          <div className="absolute right-0 mt-2 min-w-[150px] bg-modal border border-main rounded-xl shadow-2xl z-50 overflow-hidden py-1 animate-in fade-in zoom-in-95 duration-100">
             {options.map(opt => (
               <button key={opt.value} type="button" onClick={() => { onChange(opt.value); setOpen(false); }} className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${value === opt.value ? 'bg-blue-500/10 text-blue-500 font-bold' : 'text-main hover:bg-card-hover'}`}>
                 {opt.label}
@@ -702,7 +706,7 @@ useEffect(() => {
               {activeFilterDropdown === categoryKey && (
                 <>
                   <div className="fixed inset-0 z-40" onPointerDown={(e) => { e.stopPropagation(); setActiveFilterDropdown(null); }}></div>
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-modal backdrop-blur-xl border border-main rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in zoom-in-95 duration-200">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-modal border border-main rounded-2xl shadow-2xl p-4 z-50 animate-in fade-in zoom-in-95 duration-200">
                     <p className="text-sm font-medium text-main mb-3">{t('sort_title')}</p>
                     <div className="space-y-1 mb-4">
                       {[
