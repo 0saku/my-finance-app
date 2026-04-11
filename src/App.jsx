@@ -29,52 +29,23 @@ const appId = 'finance-tracker-by-abdu';
 // --- Стили и Темы ---
 const styles = `
   :root {
-    --c-bg: #f8fafc;
-    --c-card: #ffffff;
-    --c-card-hover: #f1f5f9;
-    --c-border: #e2e8f0;
-    --c-text-main: #0f172a;
-    --c-text-sub: #334155;
-    --c-text-muted: #64748b;
-    --c-modal: rgba(255, 255, 255, 0.9);
-    --c-shadow: rgba(0, 0, 0, 0.05);
+    --c-bg: #f8fafc; --c-card: #ffffff; --c-card-hover: #f1f5f9;
+    --c-border: #e2e8f0; --c-text-main: #0f172a; --c-text-sub: #334155;
+    --c-text-muted: #64748b; --c-modal: rgba(255, 255, 255, 0.9); --c-shadow: rgba(0, 0, 0, 0.05);
   }
   .dark {
-    --c-bg: #0f172a;
-    --c-card: rgba(30, 41, 59, 0.6);
-    --c-card-hover: rgba(30, 41, 59, 0.9);
-    --c-border: rgba(255, 255, 255, 0.1);
-    --c-text-main: #ffffff;
-    --c-text-sub: #e2e8f0;
-    --c-text-muted: #94a3b8;
-    --c-modal: rgba(2, 6, 23, 0.85);
-    --c-shadow: rgba(0, 0, 0, 0.3);
+    --c-bg: #0f172a; --c-card: rgba(30, 41, 59, 0.6); --c-card-hover: rgba(30, 41, 59, 0.9);
+    --c-border: rgba(255, 255, 255, 0.1); --c-text-main: #ffffff; --c-text-sub: #e2e8f0;
+    --c-text-muted: #94a3b8; --c-modal: rgba(2, 6, 23, 0.85); --c-shadow: rgba(0, 0, 0, 0.3);
   }
-
-  body { background-color: var(--c-bg); color: var(--c-text-main); transition: background-color 0.3s ease, color 0.3s ease; }
+  body { background-color: var(--c-bg); color: var(--c-text-main); transition: background-color 0.3s ease; }
   .bg-app { background-color: var(--c-bg); }
   .bg-card { background-color: var(--c-card); }
-  .bg-modal { background-color: var(--c-modal); }
   .border-main { border-color: var(--c-border); }
   .text-main { color: var(--c-text-main); }
-  .text-sub { color: var(--c-text-sub); }
-  .text-muted { color: var(--c-text-muted); }
-
-  @keyframes wave-slide-1 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  @keyframes wave-slide-2 { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-  .animate-wave-1 { animation: wave-slide-1 4s linear infinite; }
-  .animate-wave-2 { animation: wave-slide-2 6s linear infinite; }
-  .animate-wave-boil-1 { animation: wave-slide-1 1.5s linear infinite; }
-  .animate-wave-boil-2 { animation: wave-slide-2 2s linear infinite; }
-  
-  .blur-money { filter: blur(8px); transition: filter 0.3s ease; user-select: none; }
+  .blur-money { filter: blur(8px); transition: filter 0.3s ease; }
   .unblur-money { filter: blur(0px); transition: filter 0.3s ease; }
-
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  input[type="number"] { -moz-appearance: textfield; }
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 10px; }
 `;
 
