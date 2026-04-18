@@ -60,9 +60,13 @@ const styles = `
   }
 
   /* Чтобы карточки месяцев и истории выглядели аккуратно */
-  .bg-card { 
-    background-color: var(--c-card);
-    border: 1px solid var(--c-border);
+  .bg-card {
+    box-shadow: var(--c-shadow);
+  }
+  
+  /* Делаем все модалки и списки "парящими" */
+  .bg-modal, .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
   }
 
   .border-main { 
@@ -856,7 +860,7 @@ useEffect(() => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
         {monthNames.map((m, idx) => (
           <button key={idx} onClick={() => { vibrate(); setSelectedMonth(idx); setView('dashboard'); }} 
-            className="p-6 rounded-2xl bg-card border border-main hover:bg-card-hover transition-all text-xl font-medium text-main active:scale-95 shadow-md">
+            className="p-6 rounded-2xl bg-card border border-main hover:bg-card-hover transition-all text-xl font-medium text-main active:scale-95 shadow-xl">
             {m}
           </button>
         ))}
