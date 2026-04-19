@@ -31,29 +31,29 @@ const styles = `
   :root {
     --c-bg: #f8fafc;
     --c-card: #ffffff;
-    --transparent: #e2e8f0;
+    --c-border: #e2e8f0;
     --c-text-main: #0f172a;
     --c-modal: #ffffff;
   }
   .dark {
     --c-bg: #0b1120;
     --c-card: #1e293b;
-    /* Вместо белого используем легкий оттенок синего */
-    --c-border: #2d3748; 
+    --c-border: #2d3748; /* Вот этот цвет будет границей */
     --c-text-main: #f8fafc;
     --c-modal: #1e293b;
-    --c-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   }
 
   body { background-color: var(--c-bg); color: var(--c-text-main); margin: 0; }
   
   .bg-app { background-color: var(--c-bg); }
-  .bg-card { background-color: var(--c-card); border: 1px solid var(--transparent); }
-  .bg-modal { background-color: var(--c-modal); border: 1px solid var(--transparent); }
-  .border-main { border-color: var(--transparent) !important; }
   
-  /* Тени для карточек, чтобы появилась глубина */
-  .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+  /* ИСПОЛЬЗУЕМ ТОЛЬКО --c-border ВЕЗДЕ */
+  .bg-card { background-color: var(--c-card); border: 1px solid var(--c-border); }
+  .bg-modal { background-color: var(--c-modal); border: 1px solid var(--c-border); }
+  .border-main { border-color: var(--c-border) !important; }
+  
+  /* Тени для глубины */
+  .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1); }
 `;
 
 // --- Словари ---
