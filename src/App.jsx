@@ -31,25 +31,26 @@ const styles = `
   :root {
     --c-bg: #f8fafc;
     --c-card: #ffffff;
-    --c-border: #e2e8f0;
+    --transparent: #e2e8f0;
     --c-text-main: #0f172a;
     --c-modal: #ffffff;
   }
   .dark {
     --c-bg: #0b1120;
-    --c-card: #1e293b;  /* Чуть светлее фона, будет создавать объем */
-    --c-border: rgba(255, 255, 255, 0.05);
+    --c-card: #1e293b;
+    /* Вместо белого используем легкий оттенок синего */
+    --c-border: #2d3748; 
     --c-text-main: #f8fafc;
     --c-modal: #1e293b;
-    --c-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); /* Добавили глубокую тень */
+    --c-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   }
 
   body { background-color: var(--c-bg); color: var(--c-text-main); margin: 0; }
   
   .bg-app { background-color: var(--c-bg); }
-  .bg-card { background-color: var(--c-card); border: 1px solid var(--c-border); }
-  .bg-modal { background-color: var(--c-modal); border: 1px solid var(--c-border); }
-  .border-main { border-color: var(--c-border) !important; }
+  .bg-card { background-color: var(--c-card); border: 1px solid var(--transparent); }
+  .bg-modal { background-color: var(--c-modal); border: 1px solid var(--transparent); }
+  .border-main { border-color: var(--transparent) !important; }
   
   /* Тени для карточек, чтобы появилась глубина */
   .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
