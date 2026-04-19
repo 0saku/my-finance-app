@@ -36,47 +36,23 @@ const styles = `
     --c-modal: #ffffff;
   }
   .dark {
-    --c-bg: #0f172a;
-    --c-card: #1e293b; 
-    --c-border: rgba(255, 255, 255, 0.03); /* Почти невидимая линия */
-    --c-text-main: #ffffff;
+    --c-bg: #0b1120;           /* Глубокий темно-синий фон */
+    --c-card: #1e293b;         /* Тот самый "карточный" цвет */
+    --c-border: rgba(255, 255, 255, 0.08); /* Едва заметная граница */
+    --c-text-main: #f8fafc;    /* Мягкий белый текст */
     --c-modal: #1e293b;
-    /* Глубина: мягкая тень сзади */
-    --c-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    --c-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
   }
 
-  /* Убираем лишние обводки у body и обнуляем размытие */
-  body { 
-    background-color: var(--c-bg); 
-    color: var(--c-text-main); 
-    margin: 0;
-  }
-
-  .bg-modal { 
-    background-color: var(--c-modal) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: 1px solid var(--c-border) !important;
-  }
-
-  /* Чтобы карточки месяцев и истории выглядели аккуратно */
-  .bg-card {
-    box-shadow: var(--c-shadow);
-  }
+  body { background-color: var(--c-bg); color: var(--c-text-main); margin: 0; }
   
-  /* Делаем все модалки и списки "парящими" */
-  .bg-modal, .shadow-2xl {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
-  }
-
-  .border-main { 
-    border-color: var(--c-border) !important; 
-  }
-
-  /* Плавность для кнопок */
-  button {
-    transition: all 0.2s ease;
-  }
+  .bg-app { background-color: var(--c-bg); }
+  .bg-card { background-color: var(--c-card); border: 1px solid var(--c-border); }
+  .bg-modal { background-color: var(--c-modal); border: 1px solid var(--c-border); }
+  .border-main { border-color: var(--c-border) !important; }
+  
+  /* Тени для карточек, чтобы появилась глубина */
+  .shadow-xl { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
 `;
 
 // --- Словари ---
