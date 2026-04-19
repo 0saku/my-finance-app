@@ -9,6 +9,7 @@ import {
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
 import { getFirestore, collection, doc, onSnapshot, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // --- Конфигурация Firebase ---
 const firebaseConfig = {
@@ -146,7 +147,7 @@ const DICT = {
     del_warn: "Ҳақиқатан ҳам бу ёзувни ўчирмоқчимисиз?", unsaved: "Сақламасдан ёпилсинми?", unsaved_warn: "Киритилган маълумотлар йўқолади.",
     avail_all: "Мавжуд (барча даромадлардан)", spend_from: "Сарфлаш",
     empty_targets: "Бу ерда йирик харидлар бўлади", empty_reserve: "Форс-мажор харажатлар",
-    empty_useless: "Бу ерда дофамин: энергетиклар, ўйинлар ёки инжиқликлар", empty_essential: "Муҳим харажатлар: обуналар, зал, соғлиқ ва совғалар",
+    empty_useless: "Б�� ерда дофамин: энергетиклар, ўйинлар ёки инжиқликлар", empty_essential: "Муҳим харажатлар: обуналар, зал, соғлиқ ва совғалар",
     cat_useless: "Кайф учун", desc_useless: "Фойдасиз харажатлар", cat_essential: "Асосий", desc_essential: "Ҳақиқий эҳтиёжлар",
     cat_savings_targets: "Жамғарма", desc_savings_targets: "Глобал мақсадлар", cat_savings_reserve: "Захира", desc_savings_reserve: "Хавфсизлик ёстиғи",
     months: ['Январ', 'Феврал', 'Март', 'Апрел', 'Май', 'Июн', 'Июл', 'Август', 'Сентябр', 'Октябр', 'Ноябр', 'Декабр'],
@@ -1323,6 +1324,7 @@ useEffect(() => {
           </div>
         </div>
       )}
+      <SpeedInsights />
     </div>
   );
 }
