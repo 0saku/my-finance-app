@@ -36,12 +36,12 @@ const styles = `
     --c-modal: #ffffff;
   }
   .dark {
-    --c-bg: #0b1120;           /* Глубокий темно-синий фон */
-    --c-card: #1e293b;         /* Тот самый "карточный" цвет */
-    --c-border: rgba(255, 255, 255, 0.08); /* Едва заметная граница */
-    --c-text-main: #f8fafc;    /* Мягкий белый текст */
+    --c-bg: #0b1120;
+    --c-card: #1e293b;  /* Чуть светлее фона, будет создавать объем */
+    --c-border: rgba(255, 255, 255, 0.05);
+    --c-text-main: #f8fafc;
     --c-modal: #1e293b;
-    --c-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    --c-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); /* Добавили глубокую тень */
   }
 
   body { background-color: var(--c-bg); color: var(--c-text-main); margin: 0; }
@@ -836,7 +836,7 @@ useEffect(() => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
         {monthNames.map((m, idx) => (
           <button key={idx} onClick={() => { vibrate(); setSelectedMonth(idx); setView('dashboard'); }} 
-            className="p-6 rounded-2xl bg-card border border-main hover:bg-card-hover transition-all text-xl font-medium text-main active:scale-95 shadow-xl">
+            className="p-6 rounded-2xl bg-card border border-main hover:bg-card-hover transition-all shadow-xl text-xl font-medium text-main active:scale-95 shadow-xl">
             {m}
           </button>
         ))}
@@ -960,7 +960,7 @@ useEffect(() => {
             const glassColor = isOverfill ? '#ef4444' : cat.color;
 
             return (
-              <div key={key} className={`bg-card border rounded-[2.5rem] p-8 flex flex-col items-center shadow-xl transition-colors duration-500 ${isOverfill ? 'border-red-500/50 shadow-[0_0_40px_rgba(239,68,68,0.15)]' : 'border-main'}`}>
+              <div key={key} className={`bg-card border rounded-[2.5rem] p-8 flex flex-col items-center shadow-2xl transition-colors duration-500 ${isOverfill ? 'border-red-500/50 shadow-[0_0_40px_rgba(239,68,68,0.15)]' : 'border-main'}`}>
                 <div className="text-center mb-8">
                   <div className={`inline-flex p-3 rounded-2xl mb-3 transition-colors duration-500`} style={{ backgroundColor: `${glassColor}20`, color: glassColor }}><cat.icon size={28} /></div>
                   <h3 className="text-xl font-bold text-main mb-1">{t(`cat_${key}`)}</h3>
